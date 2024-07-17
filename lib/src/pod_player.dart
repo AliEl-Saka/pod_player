@@ -227,7 +227,7 @@ class _PodVideoPlayerState extends State<PodVideoPlayer>
     return widget.onLoading?.call(context) ??
         const CircularProgressIndicator(
           backgroundColor: Colors.black87,
-          color: Colors.red,
+          color: Colors.white,
           strokeWidth: 2,
         );
   }

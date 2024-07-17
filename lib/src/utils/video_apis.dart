@@ -126,18 +126,22 @@ class VideoApis {
         );
       } else {
         final manifest =
-            await yt.videos.streamsClient.getManifest(youtubeIdOrUrl);
+            await yt.videos.streamsClient.getManifest('fRh_vgS2dFE');
         urls.addAll(
-          manifest.muxed.map(
+          manifest.videoOnly.map(
             (element) => VideoQalityUrls(
               quality: int.parse(element.qualityLabel.split('p')[0]),
               url: element.url.toString(),
             ),
           ),
         );
+        print(' ali check video${manifest.videoOnly.first.url}');
+        print('ali check audio${manifest.audioOnly.first.url}');
       }
       // Close the YoutubeExplode's http client.
       yt.close();
+      print(
+          'ali was here to check urls ${urls.map((e) => print('object ${e.quality} '))}');
       return urls;
     } catch (error) {
       if (error.toString().contains('XMLHttpRequest')) {

@@ -173,7 +173,7 @@ class PodPlayerController {
     );
     podLog('$getTag Pod player Disposed');
   }
-
+  
   /// used to change the video
   Future<void> changeVideo({
     required PlayVideoFrom playVideoFrom,
